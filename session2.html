@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MOLIT - Leadership Agile Session II</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Inter & Space Grotesk -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Space Grotesk', 'sans-serif'],
+                    },
+                    colors: {
+                        molNavy: {
+                            900: '#05162e',
+                            800: '#0c2340',
+                            750: '#0f2b4d',
+                            700: '#14355e',
+                            600: '#1c477c',
+                            500: '#25599c',
+                        },
+                        glTeal: {
+                            400: '#2dd4bf',
+                            500: '#14b8a6',
+                            600: '#0d9488',
+                        },
+                        molOrange: {
+                            500: '#ea580c',
+                            600: '#c2410c',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        ::-webkit-scrollbar-track { background: #05162e; }
+        ::-webkit-scrollbar-thumb { background: #14b8a6; border-radius: 3px; }
+        .text-glow { text-shadow: 0 0 20px rgba(45, 212, 191, 0.5); }
+        .box-glow { box-shadow: 0 0 30px rgba(20, 184, 166, 0.2); }
+        @keyframes float { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-10px); } }
+        .animate-float { animation: float 6s ease-in-out infinite; }
+        .animate-fadeIn { animation: fadeIn 0.4s ease-out forwards; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+        input[type="range"] {
+            -webkit-appearance: none;
+            appearance: none;
+            height: 8px;
+            border-radius: 9999px;
+            background: linear-gradient(to right, #1c477c, #14b8a6, #ea580c);
+            outline: none;
+        }
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 26px;
+            height: 26px;
+            border-radius: 9999px;
+            background: #ffffff;
+            border: 4px solid #14b8a6;
+            cursor: pointer;
+            box-shadow: 0 0 12px rgba(20,184,166,0.6);
+        }
+        input[type="range"]::-moz-range-thumb {
+            width: 26px;
+            height: 26px;
+            border-radius: 9999px;
+            background: #ffffff;
+            border: 4px solid #14b8a6;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body class="bg-molNavy-900 text-slate-100 font-sans overflow-hidden h-full flex flex-col justify-between select-none">
+
+    <header class="px-6 py-4 flex items-center justify-between border-b border-molNavy-700 bg-molNavy-900 z-50">
+        <div class="flex items-center space-x-3">
+            <div class="h-10 w-10 bg-gradient-to-tr from-glTeal-500 to-molNavy-500 rounded-lg flex items-center justify-center font-display font-extrabold text-xl tracking-wider text-white border border-glTeal-400 shadow-md">
+                M
+            </div>
+            <div>
+                <span class="font-display font-bold tracking-wider text-base md:text-lg lg:text-xl">MOL-IT <span class="text-glTeal-400">Leadership Agile Session II</span></span>
+            </div>
+        </div>
+
+        <div class="flex items-center space-x-3">
+            <button onclick="toggleFullscreen()" class="bg-glTeal-500 hover:bg-glTeal-600 text-molNavy-900 px-4 py-2 rounded-lg text-xs font-bold flex items-center space-x-2 transition-all shadow-md">
+                <i id="controlFullscreenIcon" class="fa-solid fa-expand"></i>
+                <span>FULL SCREEN</span>
+            </button>
+            <span class="text-xs text-slate-400 font-mono hidden md:inline-block">TBC 2026</span>
+        </div>
+    </header>
+
+    <main class="relative flex-1 w-full overflow-hidden flex items-center justify-center">
+        <div id="slideContainer" class="w-full h-full relative">
+
+            <!-- ================= SLIDE 1: Title ================= -->
+            <section id="slide-1" class="absolute inset-0 w-full h-full flex flex-col justify-center items-center p-8 md:p-16 transition-all duration-700 ease-in-out flex">
+                <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(20,184,166,0.12)_0%,transparent_70%)] pointer-events-none"></div>
+                <div class="absolute h-[35rem] w-[35rem] rounded-full border border-dashed border-molNavy-700 animate-spin" style="animation-duration: 80s;"></div>
+                <div class="absolute h-[25rem] w-[25rem] rounded-full border border-molNavy-800 animate-spin" style="animation-duration: 40s; animation-direction: reverse;"></div>
+
+                <div class="text-center z-10 max-w-5xl space-y-8 animate-float">
+                    <div class="text-glTeal-400 font-mono text-xs md:text-sm uppercase tracking-widest font-semibold">SESSION II</div>
+                    <h1 class="font-display font-extrabold text-4xl md:text-6xl lg:text-7xl tracking-tight text-white leading-tight">
+                        Leading with Intent, <span class="bg-gradient-to-r from-glTeal-400 to-cyan-400 bg-clip-text text-transparent text-glow">in the Age of AI</span>
+                    </h1>
+                    <div class="pt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+                        <div class="text-sm md:text-base font-mono text-slate-300 bg-molNavy-800 px-8 py-4 rounded-lg border border-molNavy-700 shadow-lg">
+                            DATE: <span class="text-glTeal-400 font-bold">TBC</span>
+                        </div>
+                        <div class="text-sm md:text-base font-mono text-slate-300 bg-molNavy-800 px-8 py-4 rounded-lg border border-molNavy-700 shadow-lg">
+                            DURATION: <span class="text-glTeal-400 font-bold">55 MIN</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ================= SLIDE 2: Agenda ================= -->
+            <section id="slide-2" class="absolute inset-0 w-full h-full flex flex-col justify-center p-8 md:p-16 transition-all duration-700 ease-in-out hidden">
+                <div class="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                    <div class="lg:col-span-4 space-y-6">
+                        <div class="text-glTeal-400 font-mono text-xs md:text-sm uppercase tracking-widest font-semibold">ROADMAP FOR TODAY</div>
+                        <h2 class="font-display font-bold text-4xl md:text-5xl lg:text-6xl text-white">Agenda</h2>
+                        <div class="h-1.5 w-28 bg-gradient-to-r from-glTeal-400 to-molOrange-500 rounded-full mt-6"></div>
+                    </div>
+
+                    <div class="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div class="bg-molNavy-800 p-5 lg:p-6 rounded-xl border border-molNavy-700 hover:border-glTeal-500/40 transition-all group duration-300 shadow-md">
+                            <div class="flex items-start space-x-4">
+                                <div class="bg-molNavy-700 text-glTeal-400 h-11 w-11 rounded-lg flex items-center justify-center font-bold font-mono text-base group-hover:bg-glTeal-500 group-hover:text-molNavy-900 transition-colors">01</div>
+                                <div>
+                                    <h3 class="font-display font-bold text-base md:text-lg text-white">Ice Breaker</h3>
+                                    <p class="text-xs text-slate-400 font-mono mt-1">4 MIN</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-molNavy-800 p-5 lg:p-6 rounded-xl border border-molNavy-700 hover:border-glTeal-500/40 transition-all group duration-300 shadow-md">
+                            <div class="flex items-start space-x-4">
+                                <div class="bg-molNavy-700 text-glTeal-400 h-11 w-11 rounded-lg flex items-center justify-center font-bold font-mono text-base group-hover:bg-glTeal-500 group-hover:text-molNavy-900 transition-colors">02</div>
+                                <div>
+                                    <h3 class="font-display font-bold text-base md:text-lg text-white">Recap: Connecting the Dots</h3>
+                                    <p class="text-xs text-slate-400 font-mono mt-1">3 MIN</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-molNavy-800 p-5 lg:p-6 rounded-xl border border-molNavy-700 hover:border-glTeal-500/40 transition-all group duration-300 shadow-md">
+                            <div class="flex items-start space-x-4">
+                                <div class="bg-molNavy-700 text-glTeal-400 h-11 w-11 rounded-lg flex items-center justify-center font-bold font-mono text-base group-hover:bg-glTeal-500 group-hover:text-molNavy-900 transition-colors">03</div>
+                                <div>
+                                    <h3 class="font-display font-bold text-base md:text-lg text-white">Agile Leadership: Leading with Intent</h3>
+                                    <p class="text-xs text-slate-400 font-mono mt-1">15 MIN</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-molNavy-800 p-5 lg:p-6 rounded-xl border border-molNavy-700 hover:border-glTeal-500/40 transition-all group duration-300 shadow-md">
+                            <div class="flex items-start space-x-4">
+                                <div class="bg-molNavy-700 text-glTeal-400 h-11 w-11 rounded-lg flex items-center justify-center font-bold font-mono text-base group-hover:bg-glTeal-500 group-hover:text-molNavy-900 transition-colors">04</div>
+                                <div>
+                                    <h3 class="font-display font-bold text-base md:text-lg text-white">Putting Leadership into Practice</h3>
+                                    <p class="text-xs text-slate-400 font-mono mt-1">8 MIN</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-molNavy-800 p-5 lg:p-6 rounded-xl border border-molNavy-700 hover:border-glTeal-500/40 transition-all group duration-300 shadow-md">
+                            <div class="flex items-start space-x-4">
+                                <div class="bg-molNavy-700 text-glTeal-400 h-11 w-11 rounded-lg flex items-center justify-center font-bold font-mono text-base group-hover:bg-glTeal-500 group-hover:text-molNavy-900 transition-colors">05</div>
+                                <div>
+                                    <h3 class="font-display font-bold text-base md:text-lg text-white">Agile Principles in the Age of AI</h3>
+                                    <p class="text-xs text-slate-400 font-mono mt-1">16 MIN</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-molNavy-800 p-5 lg:p-6 rounded-xl border border-molNavy-700 hover:border-glTeal-500/40 transition-all group duration-300 shadow-md">
+                            <div class="flex items-start space-x-4">
+                                <div class="bg-molNavy-700 text-glTeal-400 h-11 w-11 rounded-lg flex items-center justify-center font-bold font-mono text-base group-hover:bg-glTeal-500 group-hover:text-molNavy-900 transition-colors">06</div>
+                                <div>
+                                    <h3 class="font-display font-bold text-base md:text-lg text-white">Next Steps &amp; Commitments</h3>
+                                    <p class="text-xs text-slate-400 font-mono mt-1">5 MIN</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ================= SLIDE 3: Ice Breaker ================= -->
+            <section id="slide-3" class="absolute inset-0 w-full h-full flex flex-col justify-center items-center p-8 md:p-16 transition-all duration-700 ease-in-out hidden">
+                <div class="max-w-4xl w-full text-center space-y-8 bg-molNavy-800 p-12 md:p-16 rounded-3xl border border-molNavy-700 box-glow shadow-2xl">
+                    <div class="inline-flex items-center space-x-2 bg-molOrange-500/10 border border-molOrange-500/30 text-molOrange-500 px-6 py-2.5 rounded-full text-xs md:text-sm font-bold uppercase tracking-widest">
+                        <i class="fa-solid fa-users-viewfinder"></i> Ice Breaker
+                    </div>
+
+                    <h2 class="font-display font-bold text-3xl md:text-5xl text-white leading-snug">
+                        In one word: what comes to mind when you think about <span class="text-glTeal-400">handing off control?</span>
+                    </h2>
+
+                    <div class="bg-molNavy-900 p-8 md:p-10 rounded-2xl max-w-xl mx-auto border border-molNavy-750 space-y-6 shadow-inner">
+                        <p class="text-slate-200 text-lg md:text-xl font-semibold">
+                            👉 Go to <span class="text-glTeal-400 font-extrabold">menti.com</span> and use the code:
+                        </p>
+                        <div class="bg-molNavy-800 text-3xl md:text-5xl font-mono font-extrabold tracking-widest text-white py-5 px-8 rounded-2xl border border-molNavy-600 flex items-center justify-center shadow-lg">
+                            <span class="text-glTeal-400">XXXX</span>&nbsp;<span class="text-slate-300">XXXX</span>
+                        </div>
+                        <p class="text-slate-500 text-xs">Insert live Menti code once the poll is created</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ================= SLIDE 4: Recap - Connecting the Dots ================= -->
+            <section id="slide-4" class="absolute inset-0 w-full h-full flex flex-col justify-center p-8 md:p-16 transition-all duration-700 ease-in-out hidden overflow-y-auto">
+                <div class="max-w-6xl mx-auto w-full space-y-6">
+                    <div class="text-glTeal-400 font-mono text-xs md:text-sm uppercase tracking-widest font-semibold">RECAP</div>
+                    <h2 class="font-display font-bold text-2xl md:text-4xl lg:text-5xl text-white">Connecting the Dots</h2>
+                    <p class="text-slate-300 text-base md:text-lg max-w-3xl">Here is what you told us last time.</p>
+
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end pt-4">
+                        <div class="lg:col-span-8 bg-molNavy-800 rounded-2xl border border-molNavy-700 p-6 md:p-8 shadow-xl">
+                            <p class="text-slate-200 text-sm md:text-base font-semibold mb-6">"Based on today's overview and discussion, what should be our primary focus to move forward?"</p>
+                            <div class="flex items-end justify-around h-[220px] gap-4">
+                                <div class="flex flex-col items-center flex-1 h-full justify-end">
+                                    <span class="text-white font-extrabold text-lg mb-1">5</span>
+                                    <div class="w-full rounded-t-lg" style="height: 44%; background-color: #6366f1;"></div>
+                                    <p class="text-[10px] md:text-xs text-slate-400 text-center mt-2 leading-snug">More detail to integrate into executive oversight</p>
+                                </div>
+                                <div class="flex flex-col items-center flex-1 h-full justify-end">
+                                    <span class="text-white font-extrabold text-lg mb-1">8</span>
+                                    <div class="w-full rounded-t-lg" style="height: 70%; background-color: #ef7a68;"></div>
+                                    <p class="text-[10px] md:text-xs text-slate-400 text-center mt-2 leading-snug">Cascade these themes to delivery teams</p>
+                                </div>
+                                <div class="flex flex-col items-center flex-1 h-full justify-end">
+                                    <span class="text-white font-extrabold text-lg mb-1">1</span>
+                                    <div class="w-full rounded-t-lg" style="height: 12%; background-color: #2e2a6b;"></div>
+                                    <p class="text-[10px] md:text-xs text-slate-400 text-center mt-2 leading-snug">Need time to review against current commitments</p>
+                                </div>
+                                <div class="flex flex-col items-center flex-1 h-full justify-end">
+                                    <span class="text-white font-extrabold text-lg mb-1">1</span>
+                                    <div class="w-full rounded-t-lg" style="height: 12%; background-color: #a5a6e8;"></div>
+                                    <p class="text-[10px] md:text-xs text-slate-400 text-center mt-2 leading-snug">A focused session for my specific track</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="lg:col-span-4 space-y-4">
+                            <div class="bg-molNavy-800 rounded-2xl border border-molNavy-700 p-6 shadow-md">
+                                <p class="text-slate-200 text-sm md:text-base leading-relaxed">
+                                    Two thirds of the room want to either cascade this work or use it for oversight. Both paths depend on one thing: that you are personally convinced of why it matters.
+                                </p>
+                                <p class="text-glTeal-400 font-bold text-sm md:text-base mt-4">That is where we start today.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ================= SLIDE 5: Agile Leadership - Video ================= -->
+            <section id="slide-5" class="absolute inset-0 w-full h-full flex flex-col justify-center p-8 md:p-16 transition-all duration-700 ease-in-out hidden overflow-y-auto">
+                <div class="max-w-7xl mx-auto w-full space-y-6">
+                    <div class="text-glTeal-400 font-mono text-xs md:text-sm uppercase tracking-widest font-semibold">AGILE LEADERSHIP</div>
+                    <h2 class="font-display font-bold text-2xl md:text-4xl lg:text-5xl text-white">Leading with Intent</h2>
+
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                        <div class="lg:col-span-5 space-y-5">
+                            <p class="text-slate-300 text-base md:text-lg leading-relaxed">
+                                Captain David Marquet took command of the USS Santa Fe, the worst-performing submarine in the fleet, and changed one thing: he stopped giving orders and started asking his crew to state their <strong class="text-glTeal-400">intent</strong>.
+                            </p>
+                            <p class="text-slate-400 text-sm leading-relaxed">
+                                That single shift, from a leader-follower model to a leader-leader model, took the Santa Fe from worst to first in the Navy.
+                            </p>
+                            <div class="pt-2 flex flex-wrap gap-4">
+                                <a href="https://www.youtube.com/watch?v=OqmdLcyES_Q" target="_blank" class="inline-flex items-center space-x-2 bg-red-600 hover:bg-red-700 text-white text-xs md:text-sm font-bold px-5 py-3 rounded-lg transition-all shadow-md">
+                                    <i class="fa-brands fa-youtube text-lg"></i>
+                                    <span>Watch on YouTube</span>
+                                </a>
+                                <button onclick="toggleVideoPlayer()" class="bg-molNavy-700 hover:bg-molNavy-600 border border-molNavy-600 text-xs md:text-sm text-slate-200 px-5 py-3 rounded-lg transition-all flex items-center space-x-2 font-semibold">
+                                    <i id="videoToggleIcon" class="fa-solid fa-play"></i>
+                                    <span>Play Embedded Clip</span>
+                                </button>
+                            </div>
+                            <p class="text-slate-500 text-xs">"Greatness", Inno-Versity's animated adaptation of Marquet's talk, ~6 min</p>
+                        </div>
+
+                        <div class="lg:col-span-7 bg-molNavy-800 p-6 rounded-2xl border border-molNavy-700 relative overflow-hidden flex flex-col justify-between h-[360px] lg:h-[400px] shadow-xl">
+                            <div id="mediaContainer" class="w-full h-full rounded-lg overflow-hidden relative bg-black flex items-center justify-center">
+                                <div id="videoPlaceholder" class="absolute inset-0 flex flex-col items-center justify-center gap-4 z-10 bg-molNavy-900/95">
+                                    <i class="fa-solid fa-anchor text-5xl text-glTeal-400 animate-float"></i>
+                                    <p class="text-slate-400 text-sm font-mono">Click "Play Embedded Clip" to start</p>
+                                </div>
+                                <div id="liveVideoContainer" class="absolute inset-0 w-full h-full hidden">
+                                    <iframe id="videoIframePlayer" class="w-full h-full" src="" title="YouTube Video: Greatness by David Marquet" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ================= SLIDE 6: Agile Leadership - Debrief ================= -->
+            <section id="slide-6" class="absolute inset-0 w-full h-full flex flex-col justify-center p-8 md:p-16 transition-all duration-700 ease-in-out hidden overflow-y-auto">
+                <div class="max-w-7xl mx-auto w-full space-y-8">
+                    <div class="text-glTeal-400 font-mono text-xs md:text-sm uppercase tracking-widest font-semibold">AGILE LEADERSHIP</div>
+                    <h2 class="font-display font-bold text-2xl md:text-4xl lg:text-5xl text-white">This Is Not a New Idea for You</h2>
+
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                        <div class="bg-molNavy-800 p-6 md:p-8 rounded-2xl border border-molNavy-700 shadow-md space-y-3">
+                            <span class="text-red-400 font-mono text-xs uppercase tracking-widest block font-extrabold"><i class="fa-solid fa-anchor mr-2"></i>Leader-Leader Model</span>
+                            <h4 class="text-lg md:text-xl font-bold text-white font-display">Give Control, Not Take Control</h4>
+                            <p class="text-sm md:text-base text-slate-300 leading-relaxed">
+                                Marquet's crew stopped asking "what should I do?" and started saying "I intend to..." The default became action, with a leader free to intervene, rather than silence until permission arrived.
+                            </p>
+                        </div>
+                        <div class="bg-molNavy-800 p-6 md:p-8 rounded-2xl border border-glTeal-500/40 shadow-md space-y-3">
+                            <span class="text-glTeal-400 font-mono text-xs uppercase tracking-widest block font-extrabold"><i class="fa-solid fa-shield-halved mr-2"></i>Already Your Model</span>
+                            <h4 class="text-lg md:text-xl font-bold text-white font-display">Total Ownership &amp; Culture Guardians</h4>
+                            <p class="text-sm md:text-base text-slate-300 leading-relaxed">
+                                Our own engagement already describes MOLIT PEARL leadership as owning execution outright and defending the way of working under pressure. That is the leader-leader model, in our own words.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="bg-molNavy-900 border border-molNavy-700 rounded-2xl p-6 md:p-8">
+                        <p class="text-slate-200 text-base md:text-lg font-semibold text-center">
+                            The video is not a new framework. It is confirmation of the direction we have already set.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ================= SLIDE 7: Putting Leadership into Practice ================= -->
+            <section id="slide-7" class="absolute inset-0 w-full h-full flex flex-col justify-center p-8 md:p-16 transition-all duration-700 ease-in-out hidden overflow-y-auto">
+                <div class="max-w-5xl mx-auto w-full space-y-8">
+                    <div class="text-glTeal-400 font-mono text-xs md:text-sm uppercase tracking-widest font-semibold">PUTTING LEADERSHIP INTO PRACTICE</div>
+                    <h2 class="font-display font-bold text-2xl md:text-4xl lg:text-5xl text-white">Where Do You Sit Today?</h2>
+
+                    <div class="bg-molNavy-800 p-8 md:p-10 rounded-2xl border border-molNavy-700 shadow-xl space-y-6">
+                        <p class="text-slate-300 text-sm md:text-base">Move the slider to reflect where your team sits most days, not where you would like it to sit.</p>
+                        <input type="range" min="1" max="5" value="3" id="leadershipSpectrum" oninput="updateSpectrumLabel(this.value)" class="w-full">
+                        <div class="flex justify-between text-xs md:text-sm text-slate-400 font-mono">
+                            <span>Leader-Follower</span>
+                            <span>Leader-Leader</span>
+                        </div>
+                        <div class="text-center pt-2">
+                            <span id="spectrumLabel" class="inline-block bg-molNavy-900 border border-glTeal-500/40 text-glTeal-400 font-bold px-6 py-3 rounded-full text-sm md:text-base">Balanced</span>
+                        </div>
+                    </div>
+
+                    <div class="bg-molNavy-900 border border-molNavy-700 rounded-2xl p-6 md:p-8">
+                        <p class="text-slate-200 text-base md:text-lg font-semibold">
+                            Personal commitment: name one decision this week you will hand off with intent, rather than delegate-and-check.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ================= SLIDE 8: Agile Principles in the Age of AI ================= -->
+            <section id="slide-8" class="absolute inset-0 w-full h-full flex flex-col justify-center p-8 md:p-16 transition-all duration-700 ease-in-out hidden overflow-y-auto">
+                <div class="max-w-7xl mx-auto w-full space-y-6">
+                    <div class="text-glTeal-400 font-mono text-xs md:text-sm uppercase tracking-widest font-semibold">AGILE PRINCIPLES IN THE AGE OF AI</div>
+                    <h2 class="font-display font-bold text-2xl md:text-4xl lg:text-5xl text-white">More Critical, Not Less</h2>
+                    <p class="text-slate-300 text-base md:text-lg max-w-4xl leading-relaxed">
+                        AI raises how fast a team can produce a plan, a document, or a line of code. It says nothing about whether that output is the right one. Without the same principles that always mattered, speed just produces more of the wrong thing, faster.
+                    </p>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-5 pt-2">
+                        <div class="bg-molNavy-800 p-6 rounded-xl border border-molNavy-700 shadow-md space-y-2">
+                            <i class="fa-solid fa-bolt text-glTeal-400 text-xl"></i>
+                            <h4 class="font-display font-bold text-white text-base md:text-lg">Fast feedback over big-bang planning</h4>
+                            <p class="text-slate-400 text-xs md:text-sm leading-relaxed">A wrong plan executed at AI speed is still wrong, just sooner and at greater cost.</p>
+                        </div>
+                        <div class="bg-molNavy-800 p-6 rounded-xl border border-molNavy-700 shadow-md space-y-2">
+                            <i class="fa-solid fa-people-group text-glTeal-400 text-xl"></i>
+                            <h4 class="font-display font-bold text-white text-base md:text-lg">Empowered teams over command-control</h4>
+                            <p class="text-slate-400 text-xs md:text-sm leading-relaxed">Teams closest to the AI-assisted work need the authority to stop, question, and adjust it directly.</p>
+                        </div>
+                        <div class="bg-molNavy-800 p-6 rounded-xl border border-molNavy-700 shadow-md space-y-2">
+                            <i class="fa-solid fa-arrows-spin text-glTeal-400 text-xl"></i>
+                            <h4 class="font-display font-bold text-white text-base md:text-lg">Iterating on value over defending a plan</h4>
+                            <p class="text-slate-400 text-xs md:text-sm leading-relaxed">Our own hub.AI work already shows this: it started with chatbots and is now moving toward broader process change, because the teams kept adjusting scope as they learned.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ================= SLIDE 9: Principles Poll ================= -->
+            <section id="slide-9" class="absolute inset-0 w-full h-full flex flex-col justify-center items-center p-8 md:p-16 transition-all duration-700 ease-in-out hidden">
+                <div class="max-w-4xl w-full text-center space-y-8 bg-molNavy-800 p-12 md:p-16 rounded-3xl border border-molNavy-700 box-glow shadow-2xl">
+                    <div class="inline-flex items-center space-x-2 bg-molOrange-500/10 border border-molOrange-500/30 text-molOrange-500 px-6 py-2.5 rounded-full text-xs md:text-sm font-bold uppercase tracking-widest">
+                        <i class="fa-solid fa-users-viewfinder"></i> Conviction Check
+                    </div>
+
+                    <h2 class="font-display font-bold text-2xl md:text-4xl text-white leading-snug">
+                        Are agile principles becoming <span class="text-glTeal-400">more</span> or <span class="text-molOrange-500">less</span> critical as AI matures?
+                    </h2>
+
+                    <div class="bg-molNavy-900 p-8 md:p-10 rounded-2xl max-w-xl mx-auto border border-molNavy-750 space-y-6 shadow-inner">
+                        <p class="text-slate-200 text-lg md:text-xl font-semibold">
+                            👉 Go to <span class="text-glTeal-400 font-extrabold">menti.com</span> and use the code:
+                        </p>
+                        <div class="bg-molNavy-800 text-3xl md:text-5xl font-mono font-extrabold tracking-widest text-white py-5 px-8 rounded-2xl border border-molNavy-600 flex items-center justify-center shadow-lg">
+                            <span class="text-glTeal-400">XXXX</span>&nbsp;<span class="text-slate-300">XXXX</span>
+                        </div>
+                        <p class="text-slate-500 text-xs">Insert live Menti code once the poll is created</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ================= SLIDE 10: Next Steps & Commitments ================= -->
+            <section id="slide-10" class="absolute inset-0 w-full h-full flex flex-col justify-center items-center p-8 md:p-16 transition-all duration-700 ease-in-out hidden">
+                <div class="max-w-4xl w-full text-center space-y-8 bg-molNavy-800 p-12 md:p-16 rounded-3xl border border-molNavy-700 box-glow shadow-2xl">
+                    <div class="inline-flex items-center space-x-2 bg-glTeal-500/10 border border-glTeal-500/30 text-glTeal-400 px-6 py-2.5 rounded-full text-xs md:text-sm font-bold uppercase tracking-widest">
+                        <i class="fa-solid fa-flag-checkered"></i> Next Steps &amp; Commitments
+                    </div>
+
+                    <h2 class="font-display font-bold text-2xl md:text-4xl text-white leading-snug">
+                        What is one thing you will hand off with intent in the next two weeks?
+                    </h2>
+
+                    <div class="bg-molNavy-900 p-8 md:p-10 rounded-2xl max-w-xl mx-auto border border-molNavy-750 space-y-6 shadow-inner">
+                        <p class="text-slate-200 text-lg md:text-xl font-semibold">
+                            👉 Go to <span class="text-glTeal-400 font-extrabold">menti.com</span> and use the code:
+                        </p>
+                        <div class="bg-molNavy-800 text-3xl md:text-5xl font-mono font-extrabold tracking-widest text-white py-5 px-8 rounded-2xl border border-molNavy-600 flex items-center justify-center shadow-lg">
+                            <span class="text-glTeal-400">XXXX</span>&nbsp;<span class="text-slate-300">XXXX</span>
+                        </div>
+                        <p class="text-slate-500 text-xs">Insert live Menti code once the poll is created</p>
+                    </div>
+
+                    <p class="text-slate-400 text-sm md:text-base pt-4 max-w-2xl mx-auto">
+                        This mindset is the foundation the next session's operating model, roles, mechanisms, and KPIs, will build on.
+                    </p>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <footer class="px-6 py-4 border-t border-molNavy-700 bg-molNavy-900/95 backdrop-blur-md z-50 flex items-center justify-between shadow-lg">
+        <div class="flex items-center space-x-4">
+            <button onclick="toggleFullscreen()" class="bg-molNavy-800 hover:bg-molNavy-700 text-slate-300 hover:text-white h-10 w-10 rounded-lg flex items-center justify-center border border-molNavy-700 transition-all shadow" title="Toggle Fullscreen Presentation Mode">
+                <i class="fa-solid fa-expand"></i>
+            </button>
+            <div class="text-xs md:text-sm text-slate-400 font-mono font-bold">
+                Slide <span id="footerCurrentSlide" class="text-glTeal-400 font-extrabold">1</span> / <span id="footerTotalSlides" class="text-slate-500">10</span>
+            </div>
+        </div>
+
+        <div class="flex-1 max-w-2xl mx-8 relative">
+            <div class="h-1.5 bg-molNavy-800 rounded-full w-full overflow-hidden shadow-inner">
+                <div id="slideProgressTrackerBar" class="h-full bg-gradient-to-r from-glTeal-400 to-cyan-500 transition-all duration-300" style="width: 10%;"></div>
+            </div>
+        </div>
+
+        <div class="flex items-center space-x-3">
+            <button onclick="changeActiveSlide('prev')" class="bg-molNavy-800 hover:bg-glTeal-500 hover:text-molNavy-900 text-slate-300 h-10 px-4 rounded-lg flex items-center justify-center border border-molNavy-700 transition-all space-x-2 font-bold text-sm">
+                <i class="fa-solid fa-chevron-left"></i>
+                <span class="hidden md:inline">Prev</span>
+            </button>
+            <button onclick="changeActiveSlide('next')" class="bg-glTeal-500 hover:bg-glTeal-600 text-molNavy-900 h-10 px-4 rounded-lg flex items-center justify-center transition-all space-x-2 font-bold text-sm">
+                <span class="hidden md:inline">Next</span>
+                <i class="fa-solid fa-chevron-right"></i>
+            </button>
+        </div>
+    </footer>
+
+    <script>
+        const slideLimit = 10;
+        let activeSlideIndex = 1;
+
+        window.onload = function() {
+            initPresentationFramework();
+        }
+
+        function initPresentationFramework() {
+            document.addEventListener('keydown', handleKeyNavigation);
+            document.getElementById('footerTotalSlides').innerText = slideLimit;
+
+            let touchStartX = 0;
+            document.addEventListener('touchstart', (e) => {
+                touchStartX = e.touches[0].clientX;
+            }, false);
+
+            document.addEventListener('touchend', (e) => {
+                let touchEndX = e.changedTouches[0].clientX;
+                let horizontalDiff = touchStartX - touchEndX;
+                if (Math.abs(horizontalDiff) > 50) {
+                    if (horizontalDiff > 0) {
+                        changeActiveSlide('next');
+                    } else {
+                        changeActiveSlide('prev');
+                    }
+                }
+            }, false);
+        }
+
+        function handleKeyNavigation(e) {
+            if (e.key === 'ArrowRight' || e.key === 'Space') {
+                changeActiveSlide('next');
+            } else if (e.key === 'ArrowLeft') {
+                changeActiveSlide('prev');
+            } else if (e.key.toLowerCase() === 'f') {
+                toggleFullscreen();
+            }
+        }
+
+        function changeActiveSlide(direction) {
+            let nextIndex = activeSlideIndex;
+            if (direction === 'next') {
+                nextIndex = Math.min(slideLimit, activeSlideIndex + 1);
+            } else if (direction === 'prev') {
+                nextIndex = Math.max(1, activeSlideIndex - 1);
+            }
+
+            if (nextIndex !== activeSlideIndex) {
+                const curSlideEl = document.getElementById(`slide-${activeSlideIndex}`);
+                if (curSlideEl) {
+                    curSlideEl.classList.add('hidden');
+                    curSlideEl.classList.remove('flex');
+                }
+
+                const nextSlideEl = document.getElementById(`slide-${nextIndex}`);
+                if (nextSlideEl) {
+                    nextSlideEl.classList.remove('hidden');
+                    nextSlideEl.classList.add('flex');
+                }
+
+                activeSlideIndex = nextIndex;
+                document.getElementById('footerCurrentSlide').innerText = activeSlideIndex;
+
+                const percentageWeight = (activeSlideIndex / slideLimit) * 100;
+                document.getElementById('slideProgressTrackerBar').style.width = `${percentageWeight}%`;
+            }
+        }
+
+        function toggleFullscreen() {
+            const controlIcon = document.getElementById('controlFullscreenIcon');
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen().then(() => {
+                    if (controlIcon) controlIcon.className = 'fa-solid fa-compress';
+                }).catch(err => {
+                    console.warn(`Fullscreen error: ${err.message}`);
+                });
+            } else {
+                document.exitFullscreen().then(() => {
+                    if (controlIcon) controlIcon.className = 'fa-solid fa-expand';
+                });
+            }
+        }
+
+        function toggleVideoPlayer() {
+            const videoFrameBlock = document.getElementById('liveVideoContainer');
+            const placeholder = document.getElementById('videoPlaceholder');
+            const iframe = document.getElementById('videoIframePlayer');
+            const icon = document.getElementById('videoToggleIcon');
+
+            if (videoFrameBlock.classList.contains('hidden')) {
+                videoFrameBlock.classList.remove('hidden');
+                placeholder.classList.add('hidden');
+                iframe.src = "https://www.youtube.com/embed/OqmdLcyES_Q?autoplay=1";
+                icon.className = 'fa-solid fa-pause';
+            } else {
+                videoFrameBlock.classList.add('hidden');
+                placeholder.classList.remove('hidden');
+                iframe.src = "";
+                icon.className = 'fa-solid fa-play';
+            }
+        }
+
+        function updateSpectrumLabel(val) {
+            const label = document.getElementById('spectrumLabel');
+            const labels = {
+                1: "Mostly Leader-Follower",
+                2: "Leaning Leader-Follower",
+                3: "Balanced",
+                4: "Leaning Leader-Leader",
+                5: "Mostly Leader-Leader"
+            };
+            label.innerText = labels[val];
+        }
+    </script>
+</body>
+</html>
