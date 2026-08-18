@@ -334,29 +334,30 @@
             </section>
 
             <!-- ================= SLIDE 7: Agile Principles in the Age of AI ================= -->
-            <section id="slide-7" class="absolute inset-0 w-full h-full flex flex-col justify-center p-8 md:p-16 transition-all duration-700 ease-in-out hidden overflow-y-auto">
+            <section id="slide-7" class="absolute inset-0 w-full h-full flex flex-col justify-center p-8 md:p-16 transition-all duration-700 ease-in-out hidden overflow-y-auto" onclick="revealNextPrinciple(event)">
                 <div class="max-w-7xl mx-auto w-full space-y-6">
                     <div class="text-glTeal-400 font-mono text-xs md:text-sm uppercase tracking-widest font-semibold">AGILE PRINCIPLES IN THE AGE OF AI</div>
                     <h2 class="font-display font-bold text-2xl md:text-4xl lg:text-5xl text-white">More Critical, Not Less</h2>
                     <p class="text-slate-300 text-base md:text-lg max-w-4xl leading-relaxed">
                         AI raises how fast a team can produce a plan, a document, or a line of code. It says nothing about whether that output is the right one. Without the same principles that always mattered, speed just produces more of the wrong thing, faster.
                     </p>
+                    <p class="text-slate-500 text-xs font-mono uppercase tracking-widest">Click anywhere to reveal each principle</p>
 
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-5 pt-2">
-                        <div class="bg-molNavy-800 p-6 rounded-xl border border-molNavy-700 shadow-md space-y-2">
+                        <div class="principle-tile opacity-0 -translate-y-2 pointer-events-none transition-all duration-500 ease-out bg-molNavy-800 p-6 rounded-xl border border-glTeal-500/40 shadow-md space-y-2">
+                            <i class="fa-solid fa-arrows-spin text-glTeal-400 text-xl"></i>
+                            <h4 class="font-display font-bold text-white text-base md:text-lg">Iterating on value over defending a plan</h4>
+                            <p class="text-slate-400 text-xs md:text-sm leading-relaxed">Our own hub.AI work already shows this: it started with chatbots and is now moving toward broader process change, because the teams kept adjusting scope as they learned.</p>
+                        </div>
+                        <div class="principle-tile opacity-0 -translate-y-2 pointer-events-none transition-all duration-500 ease-out bg-molNavy-800 p-6 rounded-xl border border-molNavy-700 shadow-md space-y-2">
                             <i class="fa-solid fa-bolt text-glTeal-400 text-xl"></i>
                             <h4 class="font-display font-bold text-white text-base md:text-lg">Fast feedback over big-bang planning</h4>
                             <p class="text-slate-400 text-xs md:text-sm leading-relaxed">A wrong plan executed at AI speed is still wrong, just sooner and at greater cost.</p>
                         </div>
-                        <div class="bg-molNavy-800 p-6 rounded-xl border border-molNavy-700 shadow-md space-y-2">
+                        <div class="principle-tile opacity-0 -translate-y-2 pointer-events-none transition-all duration-500 ease-out bg-molNavy-800 p-6 rounded-xl border border-molNavy-700 shadow-md space-y-2">
                             <i class="fa-solid fa-people-group text-glTeal-400 text-xl"></i>
                             <h4 class="font-display font-bold text-white text-base md:text-lg">Empowered teams over command-control</h4>
                             <p class="text-slate-400 text-xs md:text-sm leading-relaxed">Teams closest to the AI-assisted work need the authority to stop, question, and adjust it directly.</p>
-                        </div>
-                        <div class="bg-molNavy-800 p-6 rounded-xl border border-molNavy-700 shadow-md space-y-2">
-                            <i class="fa-solid fa-arrows-spin text-glTeal-400 text-xl"></i>
-                            <h4 class="font-display font-bold text-white text-base md:text-lg">Iterating on value over defending a plan</h4>
-                            <p class="text-slate-400 text-xs md:text-sm leading-relaxed">Our own hub.AI work already shows this: it started with chatbots and is now moving toward broader process change, because the teams kept adjusting scope as they learned.</p>
                         </div>
                     </div>
                 </div>
@@ -509,6 +510,30 @@
 
                 const percentageWeight = (activeSlideIndex / slideLimit) * 100;
                 document.getElementById('slideProgressTrackerBar').style.width = `${percentageWeight}%`;
+
+                if (activeSlideIndex === 7) {
+                    resetPrinciplesReveal();
+                }
+            }
+        }
+
+        let principlesRevealCount = 0;
+
+        function resetPrinciplesReveal() {
+            principlesRevealCount = 0;
+            document.querySelectorAll('#slide-7 .principle-tile').forEach(tile => {
+                tile.classList.add('opacity-0', '-translate-y-2', 'pointer-events-none');
+                tile.classList.remove('opacity-100', 'translate-y-0');
+            });
+        }
+
+        function revealNextPrinciple(event) {
+            const tiles = document.querySelectorAll('#slide-7 .principle-tile');
+            if (principlesRevealCount < tiles.length) {
+                const tile = tiles[principlesRevealCount];
+                tile.classList.remove('opacity-0', '-translate-y-2', 'pointer-events-none');
+                tile.classList.add('opacity-100', 'translate-y-0');
+                principlesRevealCount++;
             }
         }
 
