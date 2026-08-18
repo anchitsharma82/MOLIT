@@ -456,21 +456,33 @@
             </section>
 
             <!-- ================= SLIDE 11: Next Steps & Commitments ================= -->
-            <section id="slide-11" class="absolute inset-0 w-full h-full flex flex-col justify-center items-center p-8 md:p-16 transition-all duration-700 ease-in-out hidden">
-                <div class="max-w-4xl w-full text-center space-y-8 bg-molNavy-800 p-12 md:p-16 rounded-3xl border border-molNavy-700 box-glow shadow-2xl">
+            <section id="slide-11" class="absolute inset-0 w-full h-full flex flex-col justify-center items-center p-8 md:p-16 transition-all duration-700 ease-in-out hidden" onclick="revealNextMenti(event)">
+                <div class="max-w-4xl w-full text-center space-y-7 bg-molNavy-800 p-12 md:p-16 rounded-3xl border border-molNavy-700 box-glow shadow-2xl">
                     <div class="inline-flex items-center space-x-2 bg-glTeal-500/10 border border-glTeal-500/30 text-glTeal-400 px-6 py-2.5 rounded-full text-xs md:text-sm font-bold uppercase tracking-widest">
                         <i class="fa-solid fa-flag-checkered"></i> Next Steps &amp; Commitments
                     </div>
 
-                    <p class="text-slate-300 text-sm md:text-base max-w-xl mx-auto">Two quick questions, live on your phones: feedback on today's session, and one action item you're taking with you.</p>
+                    <p class="text-slate-300 text-sm md:text-base max-w-xl mx-auto">Two quick questions, live on your phones. Click to bring each one up.</p>
 
-                    <div class="bg-molNavy-900 p-8 md:p-10 rounded-2xl max-w-xl mx-auto border border-molNavy-750 space-y-6 shadow-inner">
-                        <p class="text-slate-200 text-lg md:text-xl font-semibold">
-                            👉 Go to <span class="text-glTeal-400 font-extrabold">menti.com</span>
-                        </p>
-                        <a href="https://www.menti.com/?code=74446713&preview=true" target="_blank" class="block bg-molNavy-800 text-3xl md:text-5xl font-mono font-extrabold tracking-widest text-glTeal-400 py-5 px-8 rounded-2xl border border-molNavy-600 hover:border-glTeal-500/60 transition-all shadow-lg">
-                            7444 6713
-                        </a>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                        <div class="menti-reveal opacity-0 -translate-y-2 pointer-events-none transition-all duration-500 ease-out bg-molNavy-900 p-6 md:p-8 rounded-2xl border border-molNavy-750 space-y-4 shadow-inner">
+                            <span class="text-glTeal-400 font-mono text-xs uppercase tracking-widest font-bold">Feedback</span>
+                            <p class="text-slate-200 text-sm md:text-base font-semibold">
+                                👉 Go to <span class="text-glTeal-400 font-extrabold">menti.com</span>
+                            </p>
+                            <a href="https://www.menti.com/?code=85554473&preview=true" target="_blank" class="block bg-molNavy-800 text-xl md:text-3xl font-mono font-extrabold tracking-widest text-glTeal-400 py-4 px-4 rounded-2xl border border-molNavy-600 hover:border-glTeal-500/60 transition-all shadow-lg">
+                                8555 4473
+                            </a>
+                        </div>
+                        <div class="menti-reveal opacity-0 -translate-y-2 pointer-events-none transition-all duration-500 ease-out bg-molNavy-900 p-6 md:p-8 rounded-2xl border border-molNavy-750 space-y-4 shadow-inner">
+                            <span class="text-glTeal-400 font-mono text-xs uppercase tracking-widest font-bold">Action Item</span>
+                            <p class="text-slate-200 text-sm md:text-base font-semibold">
+                                👉 Go to <span class="text-glTeal-400 font-extrabold">menti.com</span>
+                            </p>
+                            <a href="https://www.menti.com/?code=74446713&preview=true" target="_blank" class="block bg-molNavy-800 text-xl md:text-3xl font-mono font-extrabold tracking-widest text-glTeal-400 py-4 px-4 rounded-2xl border border-molNavy-600 hover:border-glTeal-500/60 transition-all shadow-lg">
+                                7444 6713
+                            </a>
+                        </div>
                     </div>
 
                     <p class="text-slate-400 text-sm md:text-base pt-4 max-w-2xl mx-auto">
@@ -577,6 +589,29 @@
                 const percentageWeight = (activeSlideIndex / slideLimit) * 100;
                 document.getElementById('slideProgressTrackerBar').style.width = `${percentageWeight}%`;
 
+                if (activeSlideIndex === 11) {
+                    resetMentiReveal();
+                }
+            }
+        }
+
+        let mentiRevealCount = 0;
+
+        function resetMentiReveal() {
+            mentiRevealCount = 0;
+            document.querySelectorAll('#slide-11 .menti-reveal').forEach(box => {
+                box.classList.add('opacity-0', '-translate-y-2', 'pointer-events-none');
+                box.classList.remove('opacity-100', 'translate-y-0');
+            });
+        }
+
+        function revealNextMenti(event) {
+            const boxes = document.querySelectorAll('#slide-11 .menti-reveal');
+            if (mentiRevealCount < boxes.length) {
+                const box = boxes[mentiRevealCount];
+                box.classList.remove('opacity-0', '-translate-y-2', 'pointer-events-none');
+                box.classList.add('opacity-100', 'translate-y-0');
+                mentiRevealCount++;
             }
         }
 
