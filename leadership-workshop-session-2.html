@@ -217,45 +217,75 @@
 
             <!-- ================= SLIDE 4: Recap - Connecting the Dots ================= -->
             <section id="slide-4" class="absolute inset-0 w-full h-full flex flex-col justify-center p-8 md:p-16 transition-all duration-700 ease-in-out hidden overflow-y-auto">
-                <div class="max-w-6xl mx-auto w-full space-y-6">
+                <div class="max-w-7xl mx-auto w-full space-y-5">
                     <div class="text-glTeal-400 font-mono text-xs md:text-sm uppercase tracking-widest font-semibold">RECAP</div>
                     <h2 class="font-display font-bold text-2xl md:text-4xl lg:text-5xl text-white">Connecting the Dots</h2>
-                    <p class="text-slate-300 text-base md:text-lg max-w-3xl">Here is what you told us last time.</p>
+                    <p class="text-slate-300 text-sm md:text-base max-w-4xl leading-relaxed">
+                        Session I's poll: 8 of you wanted to cascade these themes to delivery teams, 5 wanted more detail for executive oversight. Both paths run through the same model you named yourselves &mdash; the Westrum culture types.
+                    </p>
 
-                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end pt-4">
-                        <div class="lg:col-span-8 bg-molNavy-800 rounded-2xl border border-molNavy-700 p-6 md:p-8 shadow-xl">
-                            <p class="text-slate-200 text-sm md:text-base font-semibold mb-6">"Based on today's overview and discussion, what should be our primary focus to move forward?"</p>
-                            <div class="flex items-end justify-around h-[220px] gap-4">
-                                <div class="flex flex-col items-center flex-1 h-full justify-end">
-                                    <span class="text-white font-extrabold text-lg mb-1">5</span>
-                                    <div class="w-full rounded-t-lg" style="height: 44%; background-color: #6366f1;"></div>
-                                    <p class="text-[10px] md:text-xs text-slate-400 text-center mt-2 leading-snug">More detail to integrate into executive oversight</p>
-                                </div>
-                                <div class="flex flex-col items-center flex-1 h-full justify-end">
-                                    <span class="text-white font-extrabold text-lg mb-1">8</span>
-                                    <div class="w-full rounded-t-lg" style="height: 70%; background-color: #ef7a68;"></div>
-                                    <p class="text-[10px] md:text-xs text-slate-400 text-center mt-2 leading-snug">Cascade these themes to delivery teams</p>
-                                </div>
-                                <div class="flex flex-col items-center flex-1 h-full justify-end">
-                                    <span class="text-white font-extrabold text-lg mb-1">1</span>
-                                    <div class="w-full rounded-t-lg" style="height: 12%; background-color: #2e2a6b;"></div>
-                                    <p class="text-[10px] md:text-xs text-slate-400 text-center mt-2 leading-snug">Need time to review against current commitments</p>
-                                </div>
-                                <div class="flex flex-col items-center flex-1 h-full justify-end">
-                                    <span class="text-white font-extrabold text-lg mb-1">1</span>
-                                    <div class="w-full rounded-t-lg" style="height: 12%; background-color: #a5a6e8;"></div>
-                                    <p class="text-[10px] md:text-xs text-slate-400 text-center mt-2 leading-snug">A focused session for my specific track</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="lg:col-span-4 space-y-4">
-                            <div class="bg-molNavy-800 rounded-2xl border border-molNavy-700 p-6 shadow-md">
-                                <p class="text-slate-200 text-sm md:text-base leading-relaxed">
-                                    Two thirds of the room want to either cascade this work or use it for oversight. Both paths depend on the same foundation you named yourselves in Session I: Generative Culture, over Pathological or Bureaucratic.
-                                </p>
-                                <p class="text-glTeal-400 font-bold text-sm md:text-base mt-4">Today we make it real: the leadership model that actually builds it.</p>
-                            </div>
-                        </div>
+                    <div class="overflow-x-auto rounded-xl border border-molNavy-700 shadow-xl">
+                        <table class="w-full text-left text-xs md:text-sm font-sans min-w-[700px]">
+                            <thead class="bg-molNavy-800 text-[10px] md:text-xs font-mono uppercase tracking-wider text-slate-300">
+                                <tr class="border-b border-molNavy-700">
+                                    <th class="p-3 w-1/6">STRATEGIC DIMENSION</th>
+                                    <th class="p-3 w-1/4 bg-red-500/10 text-red-300">PATHOLOGICAL (POWER-ORIENTED)</th>
+                                    <th class="p-3 w-1/4 bg-amber-500/10 text-amber-300">BUREAUCRATIC (LEGACY: PROJECT MINDSET)</th>
+                                    <th class="p-3 w-1/4 bg-glTeal-500/10 text-glTeal-300">GENERATIVE (TARGET: PRODUCT MINDSET)</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-molNavy-700">
+                                <tr class="hover:bg-molNavy-800/40">
+                                    <td class="p-3 font-bold text-white font-mono text-xs md:text-sm">Risk &amp; Feedback<br><span class="text-[10px] font-normal text-slate-400">Uncertainty management</span></td>
+                                    <td class="p-3 text-slate-400 bg-red-500/5">
+                                        <strong class="text-red-300 block mb-1 text-xs md:text-sm">Concealment</strong>
+                                        Failures are hidden. Leaders only hear "it is green" until deployment collapse.
+                                    </td>
+                                    <td class="p-3 text-slate-400 bg-amber-500/5">
+                                        <strong class="text-amber-300 block mb-1 text-xs md:text-sm">Avoidance via Planning</strong>
+                                        Heavy upfront specifications are treated as risk mitigation.
+                                    </td>
+                                    <td class="p-3 text-slate-300 bg-glTeal-500/5 font-medium">
+                                        <strong class="text-glTeal-400 block mb-1 text-xs md:text-sm">Risk Hedging via Flow</strong>
+                                        Small increments deployed early and often to users.
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-molNavy-800/40">
+                                    <td class="p-3 font-bold text-white font-mono text-xs md:text-sm">Response to Failure<br><span class="text-[10px] font-normal text-slate-400">How mistakes are met</span></td>
+                                    <td class="p-3 text-slate-400 bg-red-500/5">
+                                        <strong class="text-red-300 block mb-1 text-xs md:text-sm">Shooting the Messenger</strong>
+                                        Delays are blamed on individuals, driving risk underground.
+                                    </td>
+                                    <td class="p-3 text-slate-400 bg-amber-500/5">
+                                        <strong class="text-amber-300 block mb-1 text-xs md:text-sm">Justice &amp; Audits</strong>
+                                        Delays lead to post-mortems, heavier approval loops, more rules.
+                                    </td>
+                                    <td class="p-3 text-slate-300 bg-glTeal-500/5 font-medium">
+                                        <strong class="text-glTeal-400 block mb-1 text-xs md:text-sm">System Inquiry</strong>
+                                        Leaders improve safety nets and automate future prevention.
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-molNavy-800/40">
+                                    <td class="p-3 font-bold text-white font-mono text-xs md:text-sm">Org &amp; Sourcing<br><span class="text-[10px] font-normal text-slate-400">Team design</span></td>
+                                    <td class="p-3 text-slate-400 bg-red-500/5">
+                                        <strong class="text-red-300 block mb-1 text-xs md:text-sm">Resource Hoarding</strong>
+                                        Silos protect headcounts, vendors blamed when timelines slip.
+                                    </td>
+                                    <td class="p-3 text-slate-400 bg-amber-500/5">
+                                        <strong class="text-amber-300 block mb-1 text-xs md:text-sm">Fragmented Matrix Pools</strong>
+                                        Siloed resources lent to projects, dissolved post-deployment.
+                                    </td>
+                                    <td class="p-3 text-slate-300 bg-glTeal-500/5 font-medium">
+                                        <strong class="text-glTeal-400 block mb-1 text-xs md:text-sm">Stable Domain Ownership</strong>
+                                        Cross-functional teams continuously own a product domain end-to-end.
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="bg-molNavy-800 rounded-2xl border border-molNavy-700 p-5 md:p-6 shadow-md">
+                        <p class="text-glTeal-400 font-bold text-sm md:text-base">Today we make it real: the leadership model that actually builds Generative Culture.</p>
                     </div>
                 </div>
             </section>
